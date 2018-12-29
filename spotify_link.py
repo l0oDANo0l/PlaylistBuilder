@@ -1,17 +1,21 @@
 import spotipy
 import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials
-from git_ignore import setup_creds
 from merc_scrape import scrape_listing
-import keyring
 import datetime
+import configparser
 
-setup_creds()
-clientId = keyring.get_password('spotify','SPOTIFY_CLIENT_ID')
-clientSecret = keyring.get_password('spotify','SPOTIFY_CLIENT_SECRET')
+# loads the config file
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+clientId = config['SPOTIFY']['CLIENT_ID']
+clientSecret = config['SPOTIFY']['CLIENT_SECRET']
+
 artists = scrape_listing()
 print (artists)
-username = '126154079'
+
+username = config['SPOTIFY']['USER_ID']
 scope = 'playlist-modify-private'
 #https://open.spotify.com/user/126154079?si=kZOLviYwRBGgExs34FTIeA
 
