@@ -1,0 +1,11 @@
+{
+  "name": "lasso-ui",
+  "version": "1.0.0",
+  "description": "round up local listings in a media form",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "dan schomburg",
+  "license": "MIT"
+}
